@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Raj's Inauguration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Cormorant+Garamond:wght@300;500&family=Hind+Siliguri:wght@400;600&family=Cinzel:wght@400;700&family=Petit+Formal+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: #0a0a0a;
+            color: #D4AF37;
+            overflow: hidden;
+            height: 100vh;
+            perspective: 1000px;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.2s ease;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .gold-card {
+            border: 2px solid #D4AF37;
+            border-radius: 12px;
+            padding: 3rem;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.3);
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .gold-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid #D4AF37;
+            border-radius: 15px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        /* New animated border effect */
+        .gold-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            padding: 4px;
+            background: linear-gradient(45deg, transparent, #D4AF37, transparent, #D4AF37, transparent);
+            background-size: 400% 400%;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: shimmer 8s ease infinite;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            letter-spacing: 3px;
+            font-weight: 400;
+            background: linear-gradient(to right, #D4AF37, #F4E4A6, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: textShine 7s ease-in-out infinite;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+            color: #F4E4A6;
+            font-weight: 400;
+        }
+        
+        p {
+            font-size: 1.5rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+        
+        .hindi {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.6rem;
+            margin: 1.2rem 0;
+            color: #F4E4A6;
+            line-height: 1.8;
+        }
+        
+        .divider {
+            height: 2px;
+            width: 150px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin: 1.8rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+            animation: dividerSlide 3s infinite ease-in-out;
+        }
+        
+        .ornament {
+            font-size: 2.2rem;
+            color: #D4AF37;
+            margin: 1rem 0;
+            opacity: 0.8;
+            transition: all 0.5s ease;
+        }
+        
+        .ornament:hover {
+            transform: scale(1.2) rotate(15deg);
+            color: #F4E4A6;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+        }
+        
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin: 1.2rem 0;
+            color: #F4E4A6;
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .names::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D4AF37;
+            transition: width 1.5s ease;
+        }
+        
+        .names.animate-in::after {
+            width: 100%;
+        }
+        
+        .details {
+            font-size: 1.6rem;
+            margin: 1rem 0;
+            text-align: center;
+            line-height: 1.8;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+        
+        .page-indicators {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .page-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.3);
+            border: 1px solid #D4AF37;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .page-indicator:hover::before {
+            left: 100%;
+        }
+        
+        .page-indicator.active {
+            background: #D4AF37;
+            box-shadow: 0 0 12px #D4AF37;
+            transform: scale(1.4);
+        }
+        
+        .invitation-text {
+            font-family: 'Petit Formal Script', cursive;
+            font-size: 2.2rem;
+            margin: 1.8rem 0;
+            color: #F4E4A6;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .invitation-text::before, .invitation-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: #D4AF37;
+            position: absolute;
+            opacity: 0.6;
+        }
+        
+        .invitation-text::before {
+            top: -15px;
+            left: -25px;
+        }
+        
+        .invitation-text::after {
+            bottom: -25px;
+            right: -25px;
+        }
+        
+        .blessing {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            margin-top: 2.2rem;
+            color: #F4E4A6;
+            line-height: 1.6;
+        }
+        
+        .gold-particle {
+            position: absolute;
+            background: #D4AF37;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Floral corner designs */
+        .corner-design {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            z-index: 1;
+            opacity: 0.2;
+            transition: opacity 1s ease;
+        }
+        
+        .gold-card:hover ~ .corner-design {
+            opacity: 0.4;
+        }
+        
+        .top-left-corner {
+            top: -80px;
+            left: -80px;
+            transform: rotate(0deg);
+        }
+        
+        .top-right-corner {
+            top: -80px;
+            right: -80px;
+            transform: rotate(90deg);
+        }
+        
+        .bottom-left-corner {
+            bottom: -80px;
+            left: -80px;
+            transform: rotate(270deg);
+        }
+        
+        .bottom-right-corner {
+            bottom: -80px;
+            right: -80px;
+            transform: rotate(180deg);
+        }
+        
+        /* SVG Corner Design */
+        .floral-corner {
+            fill: none;
+            stroke: #D4AF37;
+            stroke-width: 2;
+        }
+        
+        .floral-pattern {
+            fill: none;
+            stroke: #D4AF37;
+            stroke-width: 1.5;
+            opacity: 0.7;
+        }
+        
+        /* New animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes textShine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes dividerSlide {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        .animate-in {
+            animation: fadeIn 1.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.8s; }
+        .delay-3 { animation-delay: 1.2s; }
+        .delay-4 { animation-delay: 1.6s; }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        /* Navigation arrows */
+        .nav-arrow {
+            position: fixed;
+            font-size: 2.8rem;
+            color: #D4AF37;
+            opacity: 0.6;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-arrow:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        .arrow-up {
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .arrow-down {
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Initial setup - first page visible, others hidden */
+        #page1 {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 4;
+        }
+        
+        #page2, #page3, #page4 {
+            opacity: 0;
+            transform: translateY(100%) scale(0.9);
+            z-index: 3;
+        }
+        
+        /* New decorative elements */
+        .floating-leaves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .leaf {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(212, 175, 55, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            p, .details { font-size: 1.3rem; }
+            .hindi { font-size: 1.4rem; }
+            .names { font-size: 2rem; }
+            .invitation-text { font-size: 1.8rem; }
+            .gold-card { padding: 2rem; }
+            .corner-design { width: 200px; height: 200px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 1.8rem; }
+            p, .details { font-size: 1.2rem; }
+            .hindi { font-size: 1.2rem; }
+            .names { font-size: 1.7rem; }
+            .invitation-text { font-size: 1.5rem; }
+            .gold-card { padding: 1.5rem; }
+            .corner-design { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Floating leaves decoration -->
+        <div class="floating-leaves">
+            <div class="leaf" style="top: 10%; left: 5%; animation-delay: 0s;"><i class="fas fa-leaf"></i></div>
+            <div class="leaf" style="top: 15%; right: 7%; animation-delay: 2s;"><i class="fas fa-leaf"></i></div>
+            <div class="leaf" style="bottom: 20%; left: 10%; animation-delay: 4s;"><i class="fas fa-leaf"></i></div>
+            <div class="leaf" style="bottom: 15%; right: 8%; animation-delay: 6s;"><i class="fas fa-leaf"></i></div>
+            <div class="leaf" style="top: 40%; left: 8%; animation-delay: 1s;"><i class="fas fa-leaf"></i></div>
+            <div class="leaf" style="bottom: 30%; right: 12%; animation-delay: 3s;"><i class="fas fa-leaf"></i></div>
+        </div>
+        
+        <!-- Floral Corner Designs -->
+        <svg class="corner-design top-left-corner" viewBox="0 0 200 200">
+            <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
+            <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
+            <circle class="floral-pattern" cx="160" cy="140" r="8" />
+            <circle class="floral-pattern" cx="120" cy="100" r="6" />
+            <circle class="floral-pattern" cx="80" cy="60" r="7" />
+        </svg>
+        
+        <svg class="corner-design top-right-corner" viewBox="0 0 200 200">
+            <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
+            <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
+            <circle class="floral-pattern" cx="160" cy="140" r="8" />
+            <circle class="floral-pattern" cx="120" cy="100" r="6" />
+            <circle class="floral-pattern" cx="80" cy="60" r="7" />
+        </svg>
+        
+        <svg class="corner-design bottom-left-corner" viewBox="0 0 200 200">
+            <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
+            <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
+            <circle class="floral-pattern" cx="160" cy="140" r="8" />
+            <circle class="floral-pattern" cx="120" cy="100" r="6" />
+            <circle class="floral-pattern" cx="80" cy="60" r="7" />
+        </svg>
+        
+        <svg class="corner-design bottom-right-corner" viewBox="0 0 200 200">
+            <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
+            <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
+            <circle class="floral-pattern" cx="160" cy="140" r="8" />
+            <circle class="floral-pattern" cx="120" cy="100" r="6" />
+            <circle class="floral-pattern" cx="80" cy="60" r="7" />
+        </svg>
+        
+        <!-- Page 1: Invitation -->
+        <div class="page" id="page1">
+            <div class="gold-card float-animation">
+                <div class="ornament pulse-animation"><img src="usr.png" alt="" style="align-items: center; width:200px;"></div>
+                <h1 class="animate-in">You're Invited</h1>
+                <div class="hindi animate-in delay-1">आप सभी सादर आमंत्रित हैं</div>
+                <div class="ornament delay-1 pulse-animation"><i class="fas fa-gem"></i></div>
+                <p class="animate-in delay-2">To the Grand Inauguration Ceremony of</p>
+                <h2 class="animate-in delay-3">USR COMPLEX</h2>
+                <div class="divider"></div>
+                <p class="animate-in delay-4">With the blessings of the divine and our loved ones</p>
+                <div class="hindi animate-in delay-4">ईश्वर और हमारे प्रियजनों के आशीर्वाद के साथ</div>
+            </div>
+            
+            <div class="page-indicators">
+                <div class="page-indicator active" data-page="1"></div>
+                <div class="page-indicator" data-page="2"></div>
+                <div class="page-indicator" data-page="3"></div>
+                <div class="page-indicator" data-page="4"></div>
+            </div>
+            
+            <div class="nav-arrow arrow-down" id="arrow-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        
+        <!-- Page 2: Names -->
+        <div class="page" id="page2">
+            <div class="gold-card float-animation">
+                <h1 class="animate-in">Honored Guests</h1>
+                <div class="divider"></div>
+                <p class="animate-in delay-1">We are delighted to welcome</p>
+                <div class="names animate-in delay-2">Aditya Raj</div>
+                <p class="animate-in delay-2">Son of Juli Singh</p>
+                <div class="names animate-in delay-3">Entire Singh Family</div>
+                <p class="animate-in delay-4">With all our dear friends and well-wishers</p>
+            </div>
+            
+            <div class="nav-arrow arrow-up" id="arrow-up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            
+            <div class="nav-arrow arrow-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        
+        <!-- Page 3: Event Details -->
+        <div class="page" id="page3">
+            <div class="gold-card float-animation">
+                <h1 class="animate-in">Event Details</h1>
+                <div class="divider"></div>
+                
+                <div class="details animate-in delay-1">
+                    <i class="far fa-calendar-alt"></i> Date: Sunday, September 21, 2025
+                </div>
+                <div class="hindi animate-in delay-1">तारीख: रविवार, 21 सितंबर, 2025</div>
+                
+                <div class="details animate-in delay-2">
+                    <i class="far fa-clock"></i> Time: 7:30 AM
+                </div>
+                <div class="hindi animate-in delay-2">समय: सुबह 7:30 बजे</div>
+                
+                <div class="details animate-in delay-3">
+                    <i class="fas fa-map-marker-alt"></i> Venue: Main Road, Near Patel School<br>
+                    USR Complex Chhota Govindpur,<br>
+                    Jamshedpur 831015
+                </div>
+                
+                <div class="invitation-text animate-in delay-4">
+                    "A moment of pride and celebration"
+                </div>
+            </div>
+            
+            <div class="nav-arrow arrow-up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            
+            <div class="nav-arrow arrow-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        
+        <!-- Page 4: Closing -->
+        <div class="page" id="page4">
+            <div class="gold-card float-animation">
+                <h1 class="animate-in">Thank You</h1>
+                <div class="divider"></div>
+                
+                <p class="animate-in delay-1">We look forward to your presence and blessings</p>
+                <p class="animate-in delay-2">Your presence will add immense joy to our celebration</p>
+                
+                <div class="blessing animate-in delay-3">
+                    "May your blessings light our path to success and prosperity"
+                </div>
+                
+                <div class="names animate-in delay-4">The Singh Family</div>
+            </div>
+            
+            <div class="nav-arrow arrow-up">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            const indicators = document.querySelectorAll('.page-indicator');
+            const downArrow = document.getElementById('arrow-down');
+            const upArrow = document.getElementById('arrow-up');
+            let currentPage = 1;
+            
+            // Create gold particles for drag effect
+            function createParticles(x, y) {
+                for (let i = 0; i < 5; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('gold-particle');
+                    document.body.appendChild(particle);
+                    
+                    const size = Math.random() * 8 + 4;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    const speedX = (Math.random() - 0.5) * 10;
+                    const speedY = (Math.random() - 0.5) * 10;
+                    
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    
+                    particle.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        particle.style.transition = 'all 1s ease-out';
+                        particle.style.transform = `translate(${speedX * 20}px, ${speedY * 20}px)`;
+                        particle.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 1000);
+                }
+            }
+            
+            // Update page indicators
+            function updateIndicators() {
+                indicators.forEach(indicator => {
+                    if (parseInt(indicator.getAttribute('data-page')) === currentPage) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Navigate to specific page
+            function goToPage(pageNumber) {
+                // Reset all animations
+                document.querySelectorAll('.animate-in').forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.style.opacity = '0';
+                    page.style.transform = 'translateY(100%) scale(0.9)';
+                    page.style.zIndex = '3';
+                });
+                
+                // Show current page
+                const currentPageElement = document.getElementById(`page${pageNumber}`);
+                currentPageElement.style.opacity = '1';
+                currentPageElement.style.transform = 'translateY(0) scale(1)';
+                currentPageElement.style.zIndex = '4';
+                
+                currentPage = pageNumber;
+                updateIndicators();
+            }
+            
+            // Event listeners for arrows
+            document.querySelectorAll('.arrow-down').forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    if (currentPage < pages.length) {
+                        goToPage(currentPage + 1);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.arrow-up').forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        goToPage(currentPage - 1);
+                    }
+                });
+            });
+            
+            // Event listeners for indicators
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    const pageNumber = parseInt(indicator.getAttribute('data-page'));
+                    goToPage(pageNumber);
+                });
+            });
+            
+            // Drag and swipe functionality
+            let startY = 0;
+            let currentY = 0;
+            
+            document.addEventListener('touchstart', e => {
+                startY = e.touches[0].clientY;
+                createParticles(e.touches[0].clientX, e.touches[0].clientY);
+            });
+            
+            document.addEventListener('touchmove', e => {
+                currentY = e.touches[0].clientY;
+                
+                // Create particles during drag
+                if (Math.abs(currentY - startY) > 30) {
+                    createParticles(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            });
+            
+            document.addEventListener('touchend', () => {
+                const diff = startY - currentY;
+                
+                // Minimum swipe distance
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentPage < pages.length) {
+                        // Swipe up - go to next page
+                        goToPage(currentPage + 1);
+                    } else if (diff < 0 && currentPage > 1) {
+                        // Swipe down - go to previous page
+                        goToPage(currentPage - 1);
+                    }
+                }
+            });
+            
+            // Mouse drag events for desktop
+            document.addEventListener('mousedown', e => {
+                startY = e.clientY;
+                createParticles(e.clientX, e.clientY);
+            });
+            
+            document.addEventListener('mousemove', e => {
+                if (startY !== 0) {
+                    currentY = e.clientY;
+                    
+                    // Create particles during drag
+                    if (Math.abs(currentY - startY) > 30) {
+                        createParticles(e.clientX, e.clientY);
+                    }
+                }
+            });
+            
+            document.addEventListener('mouseup', () => {
+                if (startY !== 0) {
+                    const diff = startY - currentY;
+                    
+                    // Minimum drag distance
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0 && currentPage < pages.length) {
+                            // Drag up - go to next page
+                            goToPage(currentPage + 1);
+                        } else if (diff < 0 && currentPage > 1) {
+                            // Drag down - go to previous page
+                            goToPage(currentPage - 1);
+                        }
+                    }
+                    
+                    startY = 0;
+                    currentY = 0;
+                }
+            });
+            
+            // Initialize the page
+            goToPage(1);
+        });
+    </script>
+</body>
+</html>
