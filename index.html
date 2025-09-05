@@ -3,44 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USR Complex Inauguration Invitation</title>
+    <title>USR Complex Inauguration Invitation Card</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Cormorant+Garamond:wght@300;500&family=Hind+Siliguri:wght@400;600&family=Cinzel:wght@400;700&family=Petit+Formal+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="usr.jpg" type="image/x-icon">
-    <style>
-        :root {
-            --gold-color: #D4AF37;
-            --light-gold-color: #F4E4A6;
-            --dark-background: #0a0a0a;
-            --card-background: rgba(10, 10, 10, 0.95);
-        }
 
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
-
+        
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: var(--dark-background);
-            color: var(--gold-color);
+            background: #0a0a0a;
+            color: #D4AF37;
+            overflow-x: hidden;
+            min-height: 100vh;
             perspective: 1000px;
         }
-
+        
         .container {
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             position: relative;
             overflow: hidden;
         }
-
+        
         .page {
             position: absolute;
             width: 100%;
@@ -49,27 +39,42 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
             transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.2s ease;
             backface-visibility: hidden;
             transform-style: preserve-3d;
         }
-
+        
         .gold-card {
-            border: 2px solid var(--gold-color);
+            border: 2px solid #D4AF37;
             border-radius: 12px;
-            padding: 2.5rem 1.5rem; /* Adjusted for mobile */
-            background: var(--card-background);
-            box-shadow: 0 0 45px rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
             max-width: 800px;
-            width: 90%;
+            width: 95%;
             position: relative;
             overflow: hidden;
             z-index: 2;
+            margin: 0 auto;
         }
-
-        .gold-card::before, .gold-card::after {
+        
+        .gold-card::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid #D4AF37;
+            border-radius: 15px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        /* New animated border effect */
+        .gold-card::after {
             content: '';
             position: absolute;
             top: 0;
@@ -77,78 +82,67 @@
             right: 0;
             bottom: 0;
             border-radius: 12px;
-            pointer-events: none;
-        }
-
-        .gold-card::before {
-            border: 1px solid var(--gold-color);
-            opacity: 0.5;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 15px;
-        }
-
-        .gold-card::after {
             padding: 4px;
-            background: linear-gradient(45deg, transparent, var(--gold-color), transparent, var(--gold-color), transparent);
+            background: linear-gradient(45deg, transparent, #D4AF37, transparent, #D4AF37, transparent);
             background-size: 400% 400%;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             animation: shimmer 8s ease infinite;
             opacity: 0.7;
+            pointer-events: none;
         }
-
+        
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem; /* Adjusted for mobile */
-            margin-bottom: 1.2rem;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
             letter-spacing: 2px;
             font-weight: 400;
-            background: linear-gradient(to right, var(--gold-color), var(--light-gold-color), var(--gold-color));
+            background: linear-gradient(to right, #D4AF37, #F4E4A6, #D4AF37);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             background-size: 200% auto;
             animation: textShine 7s ease-in-out infinite;
         }
-
+        
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem; /* Adjusted for mobile */
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--light-gold-color);
+            color: #F4E4A6;
             font-weight: 400;
         }
-
+        
         p {
-            font-size: 1.2rem; /* Adjusted for mobile */
+            font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 1rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
         }
-
+        
         .hindi {
             font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.3rem; /* Adjusted for mobile */
+            font-size: 1.2rem;
             margin: 1rem 0;
-            color: var(--light-gold-color);
-            line-height: 1.8;
+            color: #F4E4A6;
+            line-height: 1.6;
         }
-
+        
         .divider {
             height: 2px;
-            width: 120px; /* Adjusted for mobile */
-            background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
+            width: 100px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
             margin: 1.5rem auto;
             position: relative;
             overflow: hidden;
         }
-
+        
         .divider::after {
             content: '';
             position: absolute;
@@ -159,86 +153,79 @@
             background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
             animation: dividerSlide 3s infinite ease-in-out;
         }
-
+        
         .ornament {
-            font-size: 2rem; /* Adjusted for mobile */
-            color: var(--gold-color);
+            font-size: 1.8rem;
+            color: #D4AF37;
             margin: 0.8rem 0;
             opacity: 0.8;
             transition: all 0.5s ease;
         }
         
-        .ornament img {
-            max-width: 150px; /* Adjusted for mobile */
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
         .ornament:hover {
-            transform: scale(1.1) rotate(15deg);
-            color: var(--light-gold-color);
+            transform: scale(1.2) rotate(15deg);
+            color: #F4E4A6;
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
         }
-
+        
         .names {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem; /* Adjusted for mobile */
+            font-size: 1.8rem;
             font-weight: 500;
             margin: 1rem 0;
-            color: var(--light-gold-color);
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+            color: #F4E4A6;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
             position: relative;
             display: inline-block;
         }
-
+        
         .names::after {
             content: '';
             position: absolute;
-            bottom: -5px; /* Adjusted for mobile */
+            bottom: -8px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gold-color);
+            background: #D4AF37;
             transition: width 1.5s ease;
         }
-
+        
         .names.animate-in::after {
             width: 100%;
         }
-
+        
         .details {
-            font-size: 1.3rem; /* Adjusted for mobile */
+            font-size: 1.2rem;
             margin: 0.8rem 0;
             text-align: center;
             line-height: 1.6;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
         }
-
+        
         .page-indicators {
             position: fixed;
-            right: 15px; /* Adjusted for mobile */
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
-
+        
         .page-indicator {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: rgba(212, 175, 55, 0.3);
-            border: 1px solid var(--gold-color);
+            border: 1px solid #D4AF37;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-
+        
         .page-indicator::before {
             content: '';
             position: absolute;
@@ -249,200 +236,214 @@
             background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
             transition: left 0.5s ease;
         }
-
+        
         .page-indicator:hover::before {
             left: 100%;
         }
-
+        
         .page-indicator.active {
-            background: var(--gold-color);
-            box-shadow: 0 0 10px var(--gold-color);
+            background: #D4AF37;
+            box-shadow: 0 0 8px #D4AF37;
             transform: scale(1.3);
         }
-
+        
         .invitation-text {
             font-family: 'Petit Formal Script', cursive;
-            font-size: 1.8rem; /* Adjusted for mobile */
+            font-size: 1.6rem;
             margin: 1.5rem 0;
-            color: var(--light-gold-color);
-            line-height: 1.5;
+            color: #F4E4A6;
+            line-height: 1.4;
             position: relative;
         }
-
+        
         .invitation-text::before, .invitation-text::after {
             content: '"';
-            font-size: 2.5rem; /* Adjusted for mobile */
-            color: var(--gold-color);
+            font-size: 2.2rem;
+            color: #D4AF37;
             position: absolute;
             opacity: 0.6;
         }
-
+        
         .invitation-text::before {
-            top: -10px;
-            left: -15px;
+            top: -12px;
+            left: -20px;
         }
-
+        
         .invitation-text::after {
-            bottom: -15px;
-            right: -15px;
+            bottom: -20px;
+            right: -20px;
         }
-
+        
         .blessing {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem; /* Adjusted for mobile */
+            font-size: 1.6rem;
             margin-top: 1.8rem;
-            color: var(--light-gold-color);
-            line-height: 1.5;
+            color: #F4E4A6;
+            line-height: 1.4;
         }
-
+        
         .gold-particle {
             position: absolute;
-            background: var(--gold-color);
+            background: #D4AF37;
             border-radius: 50%;
             opacity: 0;
             pointer-events: none;
         }
-
+        
+        /* Floral corner designs */
         .corner-design {
             position: absolute;
-            width: 150px; /* Adjusted for mobile */
+            width: 150px;
             height: 150px;
             z-index: 1;
-            opacity: 0.2;
+            opacity: 0.15;
             transition: opacity 1s ease;
+            display: none; /* Hide on mobile by default */
         }
-
+        
         .gold-card:hover ~ .corner-design {
-            opacity: 0.4;
+            opacity: 0.3;
         }
-
+        
         .top-left-corner {
-            top: -50px;
-            left: -50px;
+            top: -40px;
+            left: -40px;
             transform: rotate(0deg);
         }
-
+        
         .top-right-corner {
-            top: -50px;
-            right: -50px;
+            top: -40px;
+            right: -40px;
             transform: rotate(90deg);
         }
-
+        
         .bottom-left-corner {
-            bottom: -50px;
-            left: -50px;
+            bottom: -40px;
+            left: -40px;
             transform: rotate(270deg);
         }
-
+        
         .bottom-right-corner {
-            bottom: -50px;
-            right: -50px;
+            bottom: -40px;
+            right: -40px;
             transform: rotate(180deg);
         }
-
+        
+        /* SVG Corner Design */
         .floral-corner {
             fill: none;
-            stroke: var(--gold-color);
-            stroke-width: 2;
+            stroke: #D4AF37;
+            stroke-width: 1.5;
         }
-
+        
         .floral-pattern {
             fill: none;
-            stroke: var(--gold-color);
-            stroke-width: 1.5;
+            stroke: #D4AF37;
+            stroke-width: 1;
             opacity: 0.7;
         }
-
+        
+        /* New animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         @keyframes shimmer {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
+        
         @keyframes textShine {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
+        
         @keyframes dividerSlide {
             0% { left: -100%; }
             100% { left: 100%; }
         }
-
+        
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); opacity: 0.8; }
             50% { transform: scale(1.05); opacity: 1; }
             100% { transform: scale(1); opacity: 0.8; }
         }
-
+        
         .animate-in {
             animation: fadeIn 1.8s ease forwards;
         }
-
+        
         .delay-1 { animation-delay: 0.4s; }
         .delay-2 { animation-delay: 0.8s; }
         .delay-3 { animation-delay: 1.2s; }
         .delay-4 { animation-delay: 1.6s; }
-
+        
         .float-animation {
             animation: float 6s ease-in-out infinite;
         }
-
+        
         .pulse-animation {
             animation: pulse 4s ease-in-out infinite;
         }
-
+        
+        /* Navigation arrows */
         .nav-arrow {
             position: fixed;
-            font-size: 2.2rem;
-            color: var(--gold-color);
+            font-size: 2rem;
+            color: #D4AF37;
             opacity: 0.6;
             cursor: pointer;
             z-index: 100;
             transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
+        
         .nav-arrow:hover {
             opacity: 1;
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
-
+        
         .arrow-up {
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
         .arrow-down {
             bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
+        /* Initial setup - first page visible, others hidden */
         #page1 {
             opacity: 1;
             transform: translateY(0) scale(1);
             z-index: 4;
         }
-
+        
         #page2, #page3, #page4 {
             opacity: 0;
             transform: translateY(100%) scale(0.9);
             z-index: 3;
         }
-
+        
+        /* New decorative elements */
         .floating-leaves {
             position: absolute;
             width: 100%;
@@ -450,35 +451,275 @@
             pointer-events: none;
             z-index: 0;
         }
-
+        
         .leaf {
             position: absolute;
-            font-size: 20px;
-            color: rgba(212, 175, 55, 0.3);
+            font-size: 18px;
+            color: rgba(212, 175, 55, 0.2);
             animation: float 15s infinite ease-in-out;
         }
-
-        @media (min-width: 769px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.4rem; }
-            p { font-size: 1.5rem; }
-            .hindi { font-size: 1.6rem; }
-            .names { font-size: 2.5rem; }
-            .details { font-size: 1.6rem; }
-            .invitation-text { font-size: 2.2rem; }
-            .blessing { font-size: 2rem; }
-            .gold-card { padding: 3rem; }
-            .corner-design { width: 280px; height: 280px; }
-            .top-left-corner { top: -80px; left: -80px; }
-            .top-right-corner { top: -80px; right: -80px; }
-            .bottom-left-corner { bottom: -80px; left: -80px; }
-            .bottom-right-corner { bottom: -80px; right: -80px; }
-            .nav-arrow { font-size: 2.8rem; }
+        
+        /* Responsive design */
+        @media (min-width: 480px) {
+            .gold-card {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.2rem;
+            }
+            
+            .hindi {
+                font-size: 1.3rem;
+            }
+            
+            .names {
+                font-size: 2rem;
+            }
+            
+            .details {
+                font-size: 1.3rem;
+            }
+            
+            .corner-design {
+                display: block;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .gold-card {
+                padding: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1.3rem;
+            }
+            
+            .hindi {
+                font-size: 1.4rem;
+            }
+            
+            .names {
+                font-size: 2.2rem;
+            }
+            
+            .details {
+                font-size: 1.4rem;
+            }
+            
+            .divider {
+                width: 120px;
+            }
+            
+            .ornament {
+                font-size: 2rem;
+            }
+            
+            .corner-design {
+                width: 200px;
+                height: 200px;
+                opacity: 0.2;
+            }
+            
+            .top-left-corner, .top-right-corner {
+                top: -60px;
+            }
+            
+            .bottom-left-corner, .bottom-right-corner {
+                bottom: -60px;
+            }
+            
+            .top-left-corner, .bottom-left-corner {
+                left: -60px;
+            }
+            
+            .top-right-corner, .bottom-right-corner {
+                right: -60px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .gold-card {
+                padding: 3rem;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            p {
+                font-size: 1.5rem;
+            }
+            
+            .hindi {
+                font-size: 1.6rem;
+            }
+            
+            .names {
+                font-size: 2.5rem;
+            }
+            
+            .details {
+                font-size: 1.6rem;
+            }
+            
+            .divider {
+                width: 150px;
+                margin: 1.8rem auto;
+            }
+            
+            .ornament {
+                font-size: 2.2rem;
+            }
+            
+            .corner-design {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .top-left-corner, .top-right-corner {
+                top: -80px;
+            }
+            
+            .bottom-left-corner, .bottom-right-corner {
+                bottom: -80px;
+            }
+            
+            .top-left-corner, .bottom-left-corner {
+                left: -80px;
+            }
+            
+            .top-right-corner, .bottom-right-corner {
+                right: -80px;
+            }
+            
+            .nav-arrow {
+                font-size: 2.8rem;
+                width: auto;
+                height: auto;
+                background: transparent;
+            }
+            
+            .arrow-up {
+                top: 25px;
+            }
+            
+            .arrow-down {
+                bottom: 25px;
+            }
+        }
+        
+        /* Special adjustments for very small devices */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            p, .details {
+                font-size: 1rem;
+            }
+            
+            .hindi {
+                font-size: 1.1rem;
+            }
+            
+            .names {
+                font-size: 1.6rem;
+            }
+            
+            .invitation-text {
+                font-size: 1.4rem;
+            }
+            
+            .blessing {
+                font-size: 1.4rem;
+            }
+            
+            .gold-card {
+                padding: 1.2rem;
+            }
+            
+            .page-indicators {
+                right: 10px;
+            }
+            
+            .page-indicator {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        
+        /* Landscape mode adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .page {
+                padding: 0.5rem;
+                justify-content: flex-start;
+                overflow-y: auto;
+            }
+            
+            .gold-card {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            p, .details, .hindi {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+            
+            .divider {
+                margin: 0.8rem auto;
+            }
+            
+            .ornament {
+                margin: 0.5rem 0;
+                font-size: 1.5rem;
+            }
+            
+            .names {
+                font-size: 1.6rem;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Floating leaves decoration -->
         <div class="floating-leaves">
             <div class="leaf" style="top: 10%; left: 5%; animation-delay: 0s;"><i class="fas fa-leaf"></i></div>
             <div class="leaf" style="top: 15%; right: 7%; animation-delay: 2s;"><i class="fas fa-leaf"></i></div>
@@ -487,7 +728,8 @@
             <div class="leaf" style="top: 40%; left: 8%; animation-delay: 1s;"><i class="fas fa-leaf"></i></div>
             <div class="leaf" style="bottom: 30%; right: 12%; animation-delay: 3s;"><i class="fas fa-leaf"></i></div>
         </div>
-
+        
+        <!-- Floral Corner Designs -->
         <svg class="corner-design top-left-corner" viewBox="0 0 200 200">
             <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
             <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
@@ -495,7 +737,7 @@
             <circle class="floral-pattern" cx="120" cy="100" r="6" />
             <circle class="floral-pattern" cx="80" cy="60" r="7" />
         </svg>
-
+        
         <svg class="corner-design top-right-corner" viewBox="0 0 200 200">
             <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
             <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
@@ -503,7 +745,7 @@
             <circle class="floral-pattern" cx="120" cy="100" r="6" />
             <circle class="floral-pattern" cx="80" cy="60" r="7" />
         </svg>
-
+        
         <svg class="corner-design bottom-left-corner" viewBox="0 0 200 200">
             <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
             <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
@@ -511,7 +753,7 @@
             <circle class="floral-pattern" cx="120" cy="100" r="6" />
             <circle class="floral-pattern" cx="80" cy="60" r="7" />
         </svg>
-
+        
         <svg class="corner-design bottom-right-corner" viewBox="0 0 200 200">
             <path class="floral-corner" d="M200,200 Q150,180 130,160 Q110,140 100,100 Q90,60 70,40 Q50,20 0,0" />
             <path class="floral-pattern" d="M180,180 Q160,170 140,150 Q120,130 110,100 Q100,70 80,50 Q60,30 20,20" />
@@ -519,10 +761,11 @@
             <circle class="floral-pattern" cx="120" cy="100" r="6" />
             <circle class="floral-pattern" cx="80" cy="60" r="7" />
         </svg>
-
+        
+        <!-- Page 1: Invitation -->
         <div class="page" id="page1">
             <div class="gold-card float-animation">
-                <div class="ornament pulse-animation"><img src="usr.png" alt="USR Complex Logo" style="align-items: center;"></div>
+                <div class="ornament pulse-animation"><img src="usr.png" alt="USR Complex" style="width:150px; max-width:100%; height:auto;"></div>
                 <h1 class="animate-in">You're Invited</h1>
                 <div class="hindi animate-in delay-1">आप सभी सादर आमंत्रित हैं</div>
                 <div class="ornament delay-1 pulse-animation"><i class="fas fa-gem"></i></div>
@@ -545,6 +788,7 @@
             </div>
         </div>
         
+        <!-- Page 2: Names -->
         <div class="page" id="page2">
             <div class="gold-card float-animation">
                 <h1 class="animate-in">Honored Guests</h1>
@@ -565,6 +809,7 @@
             </div>
         </div>
         
+        <!-- Page 3: Event Details -->
         <div class="page" id="page3">
             <div class="gold-card float-animation">
                 <h1 class="animate-in">Event Details</h1>
@@ -600,6 +845,7 @@
             </div>
         </div>
         
+        <!-- Page 4: Closing -->
         <div class="page" id="page4">
             <div class="gold-card float-animation">
                 <h1 class="animate-in">Thank You</h1>
@@ -625,8 +871,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             const pages = document.querySelectorAll('.page');
             const indicators = document.querySelectorAll('.page-indicator');
+            const downArrow = document.getElementById('arrow-down');
+            const upArrow = document.getElementById('arrow-up');
             let currentPage = 1;
             
+            // Create gold particles for drag effect
             function createParticles(x, y) {
                 for (let i = 0; i < 5; i++) {
                     const particle = document.createElement('div');
@@ -657,6 +906,7 @@
                 }
             }
             
+            // Update page indicators
             function updateIndicators() {
                 indicators.forEach(indicator => {
                     if (parseInt(indicator.getAttribute('data-page')) === currentPage) {
@@ -667,7 +917,9 @@
                 });
             }
             
+            // Navigate to specific page
             function goToPage(pageNumber) {
+                // Reset all animations
                 document.querySelectorAll('.animate-in').forEach(el => {
                     el.style.animation = 'none';
                     setTimeout(() => {
@@ -675,22 +927,27 @@
                     }, 10);
                 });
                 
+                // Hide all pages
                 pages.forEach(page => {
                     page.style.opacity = '0';
                     page.style.transform = 'translateY(100%) scale(0.9)';
                     page.style.zIndex = '3';
                 });
                 
+                // Show current page
                 const currentPageElement = document.getElementById(`page${pageNumber}`);
-                if (currentPageElement) {
-                    currentPageElement.style.opacity = '1';
-                    currentPageElement.style.transform = 'translateY(0) scale(1)';
-                    currentPageElement.style.zIndex = '4';
-                    currentPage = pageNumber;
-                    updateIndicators();
-                }
+                currentPageElement.style.opacity = '1';
+                currentPageElement.style.transform = 'translateY(0) scale(1)';
+                currentPageElement.style.zIndex = '4';
+                
+                currentPage = pageNumber;
+                updateIndicators();
+                
+                // Scroll to top of page for mobile devices
+                window.scrollTo(0, 0);
             }
             
+            // Event listeners for arrows
             document.querySelectorAll('.arrow-down').forEach(arrow => {
                 arrow.addEventListener('click', () => {
                     if (currentPage < pages.length) {
@@ -707,6 +964,7 @@
                 });
             });
             
+            // Event listeners for indicators
             indicators.forEach(indicator => {
                 indicator.addEventListener('click', () => {
                     const pageNumber = parseInt(indicator.getAttribute('data-page'));
@@ -714,7 +972,9 @@
                 });
             });
             
+            // Drag and swipe functionality
             let startY = 0;
+            let currentY = 0;
             
             document.addEventListener('touchstart', e => {
                 startY = e.touches[0].clientY;
@@ -722,48 +982,67 @@
             });
             
             document.addEventListener('touchmove', e => {
-                if (Math.abs(e.touches[0].clientY - startY) > 30) {
+                currentY = e.touches[0].clientY;
+                
+                // Create particles during drag
+                if (Math.abs(currentY - startY) > 30) {
                     createParticles(e.touches[0].clientX, e.touches[0].clientY);
                 }
             });
             
-            document.addEventListener('touchend', e => {
-                const diff = startY - e.changedTouches[0].clientY;
+            document.addEventListener('touchend', () => {
+                const diff = startY - currentY;
+                
+                // Minimum swipe distance
                 if (Math.abs(diff) > 50) {
                     if (diff > 0 && currentPage < pages.length) {
+                        // Swipe up - go to next page
                         goToPage(currentPage + 1);
                     } else if (diff < 0 && currentPage > 1) {
+                        // Swipe down - go to previous page
                         goToPage(currentPage - 1);
                     }
                 }
-                startY = 0;
             });
             
+            // Mouse drag events for desktop
             document.addEventListener('mousedown', e => {
                 startY = e.clientY;
                 createParticles(e.clientX, e.clientY);
             });
             
             document.addEventListener('mousemove', e => {
-                if (startY !== 0 && Math.abs(e.clientY - startY) > 30) {
-                    createParticles(e.clientX, e.clientY);
+                if (startY !== 0) {
+                    currentY = e.clientY;
+                    
+                    // Create particles during drag
+                    if (Math.abs(currentY - startY) > 30) {
+                        createParticles(e.clientX, e.clientY);
+                    }
                 }
             });
             
-            document.addEventListener('mouseup', e => {
+            document.addEventListener('mouseup', () => {
                 if (startY !== 0) {
-                    const diff = startY - e.clientY;
+                    const diff = startY - currentY;
+                    
+                    // Minimum drag distance
                     if (Math.abs(diff) > 50) {
                         if (diff > 0 && currentPage < pages.length) {
+                            // Drag up - go to next page
                             goToPage(currentPage + 1);
                         } else if (diff < 0 && currentPage > 1) {
+                            // Drag down - go to previous page
                             goToPage(currentPage - 1);
                         }
                     }
+                    
                     startY = 0;
+                    currentY = 0;
                 }
             });
             
+            // Initialize the page
             goToPage(1);
         });
     </script>
